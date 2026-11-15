@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#12366a">
+<title>UMF - Majorettes, Pompon, Twirling</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#202b3c}
+header{background:#12366a;color:white;padding:22px 16px;text-align:center}
+.logo{font-size:36px;font-weight:900;letter-spacing:3px}
+header p{margin:7px 0 0;font-size:13px;letter-spacing:1px}
+nav{display:flex;overflow-x:auto;background:white;padding:10px;gap:8px;position:sticky;top:0;box-shadow:0 2px 8px #0001}
+nav button{border:0;background:#edf1f7;padding:12px 15px;border-radius:9px;white-space:nowrap;font-weight:bold;color:#12366a}
+nav button.active{background:#12366a;color:white}
+main{max-width:900px;margin:24px auto;padding:0 16px}
+.hero{background:white;padding:28px 20px;border-radius:16px;text-align:center;box-shadow:0 3px 15px #0000000b}
+.hero h1{color:#12366a;font-size:27px}
+.hero p{line-height:1.6;color:#596579}
+.red{color:#c62836}
+.action{background:#c62836;color:white;border:0;border-radius:9px;padding:13px 18px;font-weight:bold;cursor:pointer}
+.card{background:white;padding:20px;margin:14px 0;border-radius:13px;box-shadow:0 2px 10px #0000000b}
+.card h3{color:#12366a;margin-top:0}
+.page{display:none}
+.page.active{display:block}
+input,textarea{width:100%;padding:12px;margin:7px 0 14px;border:1px solid #ccd3df;border-radius:8px;font:inherit}
+label{font-weight:bold;font-size:14px}
+footer{text-align:center;padding:25px;color:#718096;font-size:13px}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">UMF</div>
+<p>MAJORETTES • POMPON • TWIRLING</p>
+</header>
+
+<nav>
+<button class="active" onclick="showPage('accueil',this)">Accueil</button>
+<button onclick="showPage('actus',this)">Actualités</button>
+<button onclick="showPage('evenements',this)">Événements</button>
+<button onclick="showPage('videos',this)">Vidéos</button>
+<button onclick="showPage('documents',this)">Documents</button>
+<button onclick="showPage('membres',this)">Espace membres</button>
+</nav>
+
+<main>
+<section id="accueil" class="page active">
+<div class="hero">
+<h1>Bienvenue sur l'application <span class="red">UMF</span></h1>
+<p>Retrouvez toute l'actualité des majorettes, du pompon et du twirling en France.</p>
+<button class="action" onclick="showPage('evenements',document.querySelectorAll('nav button')[2])">Découvrir les événements</button>
+</div>
+<div class="card">
+<h3>Actualités UMF</h3>
+<p>Retrouvez prochainement toutes les nouvelles de l'Union des Majorettes Françaises.</p>
+</div>
+<div class="card">
+<h3>Nos événements</h3>
+<p>Consultez les prochains rendez-vous et les modalités d'inscription.</p>
+</div>
+</section>
+
+<section id="actus" class="page">
+<div class="card"><h2>Actualités UMF</h2>
+<p>Les nouvelles de l'Union des Majorettes Françaises seront publiées ici.</p></div>
+</section>
+
+<section id="evenements" class="page">
+<div class="card"><h2>Événements</h2>
+<p>Retrouvez ici les compétitions, rencontres et manifestations UMF.</p>
+<h3>Demande d'inscription</h3>
+<label>Nom</label><input placeholder="Votre nom">
+<label>Prénom</label><input placeholder="Votre prénom">
+<label>Club</label><input placeholder="Nom de votre club">
+<label>Événement</label><input placeholder="Nom de l'événement">
+<button class="action" onclick="alert('Cette maquette ne transmet pas encore les inscriptions. La connexion sécurisée sera ajoutée ensuite.')">Préparer mon inscription</button>
+</div>
+</section>
+
+<section id="videos" class="page">
+<div class="card"><h2>Vidéos et tutoriels</h2>
+<p>Les vidéos de formation et tutoriels UMF seront disponibles ici.</p></div>
+</section>
+
+<section id="documents" class="page">
+<div class="card"><h2>Documents</h2>
+<p>Retrouvez les convocations, programmes et documents officiels UMF.</p></div>
+</section>
+
+<section id="membres" class="page">
+<div class="card"><h2>Espace adhérents</h2>
+<p>Accès réservé aux adhérents UMF.</p>
+<label>Adresse e-mail</label><input type="email" placeholder="Votre adresse e-mail">
+<label>Mot de passe</label><input type="password" placeholder="Votre mot de passe">
+<button class="action" onclick="alert('La connexion sécurisée sera activée lors du raccordement à Supabase.')">Se connecter</button>
+<p>Pas encore de compte ? La création de compte sera bientôt disponible.</p>
+</div>
+</section>
+</main>
+
+<footer>© UMF – Majorettes • Pompon • Twirling</footer>
+
+<script>
+function showPage(id,button){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+button.classList.add('active');
+window.scrollTo(0,0);
+}
+</script>
+</body>
+</html>
